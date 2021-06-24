@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 파일 참조 -->
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <h3>엘리먼트 속성 변경 attr(ibute)</h3>
+
+    <input type="text" id="test01" readonly> <br>
+    <img src="#" class="test02">
+    <img src="#" class="test03" width="" height="">
+
+
+    <script>
+        //JS
+        var a1 = document.getElementById("test01").id;//id값
+        console.log(a1);
+        
+        //JQuery
+        var a2 = $("#test01").attr("id");
+        console.log(a2);
+
+        //JQuery
+        var a3 = $("#test01").attr("readonly");
+        console.log(a3);
+
+
+        //하나의 값 변경 attr(속성명, 변경값)
+        $(".test02").attr("src","profile.png");
+
+        //여러개의 값 변경
+        $(".test03").attr({
+            "src":"profile.png",
+            "width":"150px",
+            "height":"150px",
+            "alt":"hello월드"});
+    </script>
+
+</body>
+</html>

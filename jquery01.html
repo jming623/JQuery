@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- 제이쿼리 파일 참조 -->
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    <h3>엘리먼트의 값 val(ue)</h3>
+
+    <input type="text" id="apple" value="홍길동"> <br>
+    <input type="text" class="melon" value="김길동"> <br>
+    <input type="hidden" value="이순신"> <br>
+
+    <script>
+        /*
+            제이쿼리 $(선택자)를 통해서 요소를 얻으면, 반환으로 객체를 돌려받습니다.
+            자바스크립트에서 사용하던 방법으로 $(선택자)[인덱스]를 이용해서 엘리먼트 형태로 값을 꺼낼 수 있으나 , 둘을 혼용해서 사용하면 가독성과 이후 유지보수에 안좋을 수 있습니다. 
+            결론적으로 제이쿼리에서는 $(선택자).제이쿼리함수 를 이용해서 js작업을 빠르게 처리할 수 있습니다.
+        */
+
+
+        //자바스크립트 -> 요소(Element)
+        var a1 = document.getElementById("apple");
+        console.log(a1);
+        
+        //JQuery -> 객체(배열)
+        var a2 = $("#apple");
+        console.log(a2);
+
+        //JQuery는 자바스크립트와 다르게 값이 객체(배열)형태로 출력됨 자바스크립트에 배열에 접근은 [index]로 함(하지만 대괄호로 값을 뽑아오면 순수한 JQuery방법이라 할 수 없다). 
+        var a3 = $("#apple")[0]; //Jquery + js의 방법 (x) 
+        console.log(a3);
+
+        console.log("=======================")
+        //JS
+        var b1 = document.querySelector(".melon").value;
+        console.log(b1);
+        
+        //JQuery
+        var b2 = $(".melon").val();
+        console.log(b2);
+
+        console.log("==================")
+        
+        //JS
+        var c1 = document.querySelector("input[type=hidden]");
+        console.log(c1);
+
+        //JQuery
+        var c2 = $("input[type=hidden]").val();
+        console.log(c2);
+
+        //JQuery val()함수로 값 변경
+        $("input[type=hidden]").val("신사임당");
+        
+
+
+    </script>
+
+</body>
+</html>

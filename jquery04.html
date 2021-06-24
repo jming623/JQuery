@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <h3>JS innerHTML vs 제이쿼리 html()</h3>
+
+    <div class="test"></div>
+
+    <div class="test-html"></div>
+
+    <div class="test-text"></div>
+    
+    
+    <script>
+        //JS innerHTML
+        document.querySelector(".test").innerHTML = "<a href='#'>JS</a>"
+
+        //JQuery html()
+        //다시선언해서 값을 변경해 줄 수 있다.
+        $(".test-html").html("<a href='#'>JQuery</a>");
+        $(".test-html").html("<a href='#'></a>");
+        $(".test-html").html("<a href='#'>JQuery_html1()</a><br><a href='#'>JQuery_html2()</a>");
+
+        //값의 확인은 매개변수를 안주면됨.
+        var result = $(".test-html").html();
+        console.log(result);
+
+        //순수 문자열의 형태로 삽입하기 text()
+        $(".test-text").text("<a href='#'>JQuery_text</a>");
+
+    </script>
+
+</body>
+</html>

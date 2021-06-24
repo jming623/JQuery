@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+    
+    <h3>클래스 제어 addClass, removeClass, toggleClass</h3>
+
+    <button id="btn1" class="btn btn-default">JS 클래스조작확인</button>
+    <button id="btn2" class="btn btn-default">JQuery 클래스조작확인</button>
+    
+    <h3>토글방식</h3>
+    <button id="toggle" class="dark">JQuery 토글클래스 조작확인</button>
+
+    
+    
+    <script>
+        
+        //JS로 클래스 조작 (class는 예약어라 바로 바꿀 수 없다.)
+        var btn1 = document.getElementById("btn1");
+        btn1.onclick = function(){
+            
+            if(btn1.classList.contains("myBtn")){                
+                //JS로 클래스 생성
+                btn1.classList.remove("myBtn");
+            }else{
+                //JS로 클래스 제거
+                btn1.classList.add("myBtn");   
+            }
+        }
+        
+        //JQuery
+        $("#btn2").addClass("myBtn");
+
+        //JQuery 클래스 제거
+        $("#btn2").removeClass("myBtn");
+        
+        
+        //JQuery 토글클래스 //현재는 JQuery에 이벤트방식을 배우지않아서 이곳에서는 임의로 혼용으로 사용하겠다.
+        var toggle = document.getElementById("toggle");
+        
+        toggle.onclick = function(){
+            //toggle.classList.toggle("aaa");
+            $("#toggle").toggleClass("aaa");
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <script>
+        
+        //id로 btn값을 가져오는데 btn값이 생성되기 전에 아래구문으로 btn을 호출하면 null값이 반환됨. 이때 페이지가 다 실행된 맨마지막에 실행하게 해주는 window.onload키워드를 사용합니다.
+        window.onload = function(){
+            document.getElementById("btn1").onclick = function(){
+                alert("실행됨(JS)");
+            }
+        }
+
+        //JQuery의 window.onlioad와 같은 JQuery문법
+        $(document).ready(function(){
+            var btn2 = document.getElementById("btn2");
+            btn2.onclick = function(){
+                alert("첫번째 경고창이 실행됨(JQuery)");
+            }
+            //alert("이건되는데?1");
+        })
+        
+        //$(document).ready()는 여러번 사용될 수 있습니다.
+        $(document).ready(function(){
+            btn2.onclick = function(){
+                 alert("두번째 경고창이 실행됨(JQuery)");//이건안되네
+            }
+            //alert("이건되는데?2");
+        })
+        
+    </script>
+
+    <h3>window.onload vs document.ready</h3>
+
+    <button type="button" id="btn1">이벤트 버튼(JS)</button>
+    <button type="button" id="btn2">이벤트 버튼(JQuery)</button>
+
+</body> 
+</html>
