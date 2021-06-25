@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+</head>
+<body>
+    
+    <button type="button" id="ajaxBtn">에이젝스 요청</button>
+    
+    <script>
+        $("#ajaxBtn").click(function(){
+            
+            $.ajax({
+                type : "post",
+                url: "http://localhost:8181/myweb/getXML",
+                dataType: "xml", //xml형식으로 주세요(생략가능)
+                contentType : "application/json", //json형식으로 보낼게요
+                data: JSON.stringify({"name":"스폰지밥", "age":"5세", "gender":"남"}),
+                success : function(data){console.log(data);},
+                error : function(status,error){console.log(status,error);}
+            })
+        })
+
+        /*xml로 받아오는 값:
+         <ArrayList>
+            <item>
+                <name>다람이</name>
+                <age>5</age>
+                <gender>여성</gender>
+            </item>
+        </ArrayList>
+        */
+    </script>
+
+</body>
+</html>

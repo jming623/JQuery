@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="js/jquery.js"></script>
+
+</head>
+<body>
+    
+    <button type="button" id="ajaxBtn">에이잭스요청</button>
+
+    <script>
+
+        $("#ajaxBtn").click(function(){
+            
+            //제이쿼리 ajax함수
+            $.ajax({
+                type :"post", //요청방식
+                url :"http://localhost:8181/myweb/getAjax", //요청보낼주소
+                dataType : "json", //요청받을 데이터 형식(이렇게 주세요라는 뜻)(생략가능)(대표적으로 xml이나 json으로 받게됨.)
+                contentType : "application/json",
+                data : JSON.stringify({"name":"홍길동", "age":"20"}), //네트워크에서는 객체를 사용할 수 없기때문에 JSON.stringify를 사용해서 문자열로 변경후 보내준다.
+                success : function(data){
+                    console.log(data);
+                } ,//성공시 실행시킬 콜백함수 (성공했을시 매개변수 data로 값을 받아올 수 있습니다.)
+                error : function(stats,error){
+                    console.log(status, error);
+                }//실패시 실행시킬 콜백함수 (status는 현재 상태, error는 서버측에서 보내주는 error메세지)
+            })
+            
+        });
+
+        /* json으로 받아오는 값
+            [{…}]
+            0: {name: "이순신", age: "20", gender: "남성"}
+            length: 1
+            __proto__: Array(0)
+        */
+
+    </script>
+
+</body>
+</html>

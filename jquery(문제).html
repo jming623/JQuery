@@ -51,10 +51,10 @@
 <body>
     
     <!-- ready함수를 이용해서 제이쿼리로 코드를 작성 -->
-
+    
+    <!-- 내 풀이 현재는 $(document).ready(function(){})을 주석처리해서 동작하지 않도록 만들어놓았다.-->
     <script>
-        $(document).ready(function(){
-
+        // $(document).ready(function(){
             $("#btn1").click(function(){
 
                 if($("#btn1").attr("class")=="dark"){
@@ -105,10 +105,45 @@
                                     또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다.</p><u>위키백과</u>")
                 }
             })
+        // })
+    </script>
+    
+    <!-- 선생님 풀이 -->
+    <script>
+        
+        $(document).ready(function(){
+            //이벤트
+            $("#btn1").click(function(){
+                console.log($(".dark").attr("class"));
 
+                if($("#btn1").attr("class")=="dark"){
+                    $(document.body).css("backgroundColor","black"); // $("body")혹은 $(document.body)로 바디태크를 선택할 수 있습니다.
+                    $("p,a,h2").css("color","white");
+                    $("#btn1").html("밝게보기");
+                    $("#btn1").attr("class","bright"); 
+                }else{ //bright일경우
+                    $(document.body).css("backgroundColor","white");
+                    $("p,a,h2").css("color","black");
+                    $("#btn1").html("어둡게보기");
+                    $("#btn1").attr("class","dark"); 
+                }
 
+            });
 
-
+            $("#btn2").click(function(){
+                
+                if($("#btn2").attr("class")=="name"){
+                    $(".inner p").html("<p>홍길자</p><p>20세</p><p>능력단위</p><p>Java,Oracle,JSP,CSS,Javascript</p>");
+                    $(".inner a").css("display","none");
+                    $("#btn2").html("내용보기");
+                    $("#btn2").attr("class","cont"); 
+                }else{
+                    $(".inner p").html("자바스크립트는 객체 기반의 스크립트 프로그래밍 언어이다. 이 언어는 웹 브라우저 내에서 주로 사용하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다. 또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 사용되고 있다");
+                    $(".inner a").css("display","inline");
+                    $("#btn2").html("이름보기");
+                    $("#btn2").attr("class","name"); 
+                }
+            });
         })
     </script>
 
